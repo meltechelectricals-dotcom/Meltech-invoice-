@@ -1,0 +1,10 @@
+{
+  "name": "meltech-invoices",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Meltech invoices, quotations, and account API for Vercel",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "pg": "^8.13.1"
+  }
+}
