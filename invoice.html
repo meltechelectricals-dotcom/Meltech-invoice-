@@ -74,18 +74,6 @@ hr,.divider{border-color:#554526!important}
 #authScreen #localBtn{background:#fff!important;color:#171612!important;border:1px solid #ddd!important}
 
 
-/* MELTECH sticky navigation and page header */
-.topbar{position:sticky!important;top:0!important;z-index:1000!important}
-.layout{align-items:start}
-.layout>aside{position:sticky!important;top:70px!important;align-self:start!important;max-height:calc(100vh - 70px)!important;overflow-y:auto!important}
-.main>.heading{position:sticky!important;top:70px!important;z-index:80!important;background:#090909!important;padding:14px 0 16px!important;margin-top:-14px!important;margin-bottom:18px!important;border-bottom:1px solid #6b5425!important}
-.workspace-banner{position:sticky!important;top:158px!important;z-index:70!important}
-@media(max-width:650px){
- .topbar{top:0!important}
- .layout>aside{display:none!important}
- .main>.heading{top:70px!important;padding:10px 0 12px!important}
- .workspace-banner{top:160px!important}
-}
 </style></head>
 <body data-page="invoice"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>BUSINESS DESK</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
