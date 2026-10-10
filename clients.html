@@ -62,6 +62,17 @@ hr,.divider{border-color:#554526!important}
 .paper,.stationery,.invoice-paper{background:#fff!important;color:#171612!important}
 @media print{html,body{background:#fff!important;color:#171612!important}.paper,.stationery,.invoice-paper{background:#fff!important;color:#171612!important}}
 
+
+/* Preserve the original light sign-in screen; dark theme applies only after login. */
+#authScreen{background:#f4f3f0!important;color:#171612!important}
+#authScreen>div{background:#fff!important;color:#171612!important;border:1px solid #e9e6df!important;box-shadow:0 18px 54px #27231912!important}
+#authScreen h1,#authScreen p,#authScreen label,#authScreen #authMessage{color:#171612!important}
+#authScreen input{background:#fff!important;color:#171612!important;border:1px solid #ddd!important;box-shadow:none!important}
+#authScreen input:focus{outline:2px solid #eaa91f!important;border-color:#eaa91f!important}
+#authScreen button{background:#171612!important;color:#fff!important;border:1px solid #171612!important;border-radius:7px!important;padding:9px 13px!important}
+#authScreen #forgotBtn{background:#fff!important;color:#171612!important;border:1px solid #ddd!important}
+#authScreen #localBtn{background:#fff!important;color:#171612!important;border:1px solid #ddd!important}
+
 </style></head>
 <body data-page="home"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>BUSINESS DESK</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
