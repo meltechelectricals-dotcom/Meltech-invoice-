@@ -28,7 +28,41 @@ body[data-page="reports"] .content,body[data-page="settings"] .content{display:n
 body[data-page="reports"] .history,body[data-page="reports"] .accounting{display:block!important}
 body[data-page="settings"] .history,body[data-page="settings"] .accounting{display:none!important}
 body[data-page="settings"] #settingsInfo{display:block!important}
-.brand-logo{width:38px;height:38px;object-fit:contain;display:block;flex:0 0 38px}.brand strong{display:block;font:800 16px Manrope,sans-serif;letter-spacing:.6px;color:#fff}.brand small{display:block;font:600 9px "DM Sans";color:#aaa69a;letter-spacing:1.7px;margin-top:3px}.system-label{margin-top:29px;padding-top:22px;border-top:1px solid #e9e6df}.sidebar-profile{display:flex;align-items:center;gap:10px;margin:0 4px;padding:15px 7px 0;border-top:1px solid #e9e6df;position:absolute;bottom:20px;left:15px;right:15px}.layout aside{position:relative;padding-bottom:100px;min-height:calc(100vh - 70px)}.profile-avatar{width:35px;height:35px;border-radius:50%;background:#201e18;color:#f3bd3f;display:grid;place-items:center;font-weight:800;font-size:12px;flex:0 0 35px}.profile-copy{min-width:0}.profile-copy strong{display:block;font:800 11px Manrope;color:#24221d}.profile-copy span{display:block;font-size:10px;color:#89867e;margin-top:3px;white-space:nowrap}</style></head>
+.brand-logo{width:38px;height:38px;object-fit:contain;display:block;flex:0 0 38px}.brand strong{display:block;font:800 16px Manrope,sans-serif;letter-spacing:.6px;color:#fff}.brand small{display:block;font:600 9px "DM Sans";color:#aaa69a;letter-spacing:1.7px;margin-top:3px}.system-label{margin-top:29px;padding-top:22px;border-top:1px solid #e9e6df}.sidebar-profile{display:flex;align-items:center;gap:10px;margin:0 4px;padding:15px 7px 0;border-top:1px solid #e9e6df;position:absolute;bottom:20px;left:15px;right:15px}.layout aside{position:relative;padding-bottom:100px;min-height:calc(100vh - 70px)}.profile-avatar{width:35px;height:35px;border-radius:50%;background:#201e18;color:#f3bd3f;display:grid;place-items:center;font-weight:800;font-size:12px;flex:0 0 35px}.profile-copy{min-width:0}.profile-copy strong{display:block;font:800 11px Manrope;color:#24221d}.profile-copy span{display:block;font-size:10px;color:#89867e;margin-top:3px;white-space:nowrap}
+/* MELTECH black, gold and white workspace theme */
+:root{color-scheme:dark;--ink:#f7f5ef;--muted:#b9b4a8;--gold:#d9aa3f;--gold2:#f4cc70;--line:#49412f;--paper:#fff;--bg:#0b0b0b;--green:#42b883;--shadow:0 18px 54px #0009}
+html,body{background:#090909!important;color:#f7f5ef}
+body{background:radial-gradient(ellipse at 80% 0%,#211b0d 0%,#0b0b0b 48%)!important;color:#f7f5ef}
+.topbar,.sidebar,.nav,.sidecard{background:#090909!important;color:#fff!important;border-color:#6b5425!important}
+.topbar{border-bottom:1px solid #b18a32!important}
+.main,.content,.app,.workspace,.page-content{background:transparent!important;color:#f7f5ef}
+.panel,.formpanel,.sidecard,.previewpanel,.recent-card,.quick-card,.dash-stat,.account-stat,.account-stats,.dashboard-stats,.workspace-banner,.clients-workspace,.client-form,.client-table-wrap,.empty-state,.modal,.dialog,.card,.report-card,.stat-card,.settings-card{background:#151515!important;color:#f7f5ef!important;border:1px solid #5d4922!important;box-shadow:0 12px 34px #0006}
+.paneltitle,.section-label,.dash-section-head,.stat-label,.navlabel{color:#e6bd59!important}
+h1,h2,h3,h4,p,label,small,.muted,.field label,.brand,.sidebar-profile{color:#f7f5ef}
+a{color:#f0c45d}
+a:hover{color:#ffe3a0}
+input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea{background:#0b0b0b!important;color:#fff!important;border:1px solid #66552f!important;border-radius:7px}
+input::placeholder,textarea::placeholder{color:#a7a092!important}
+input:focus,select:focus,textarea:focus{outline:2px solid #d9aa3f!important;border-color:#e4b94e!important}
+button,.btn,.primary-action,.quick-card button{border-color:#bd9135!important}
+.btn,.primary-action,button.primary,.quick-card{background:#17140d!important;color:#f5cc68!important}
+.btn:hover,button:hover,.primary-action:hover{border-color:#f4cc70!important;filter:brightness(1.12)}
+.nav a,.nav button,.nav-item{color:#e7e2d8!important}
+.nav a.active,.nav .active,.nav-item.active{background:#2a2110!important;color:#ffd66e!important;border-left:3px solid #d9aa3f!important}
+table,.table,.acct-table,.client-table{color:#f7f5ef!important;border-color:#554526!important}
+th{background:#211b0e!important;color:#f3cc68!important;border-color:#554526!important}
+td,tr{border-color:#393225!important}
+hr,.divider{border-color:#554526!important}
+.badge,.status-pill,.client-status{border-color:#80652b!important}
+.workspace-pill{background:#251e0e!important;color:#f5cc68!important;border:1px solid #80652b!important}
+.brand-logo,.brand-mark{border-color:#c29a3c!important}
+.sidebar-profile{border-top:1px solid #5d4922!important}
+/* Keep the actual invoice/quotation stationery white for print and PDF output. */
+.paper,.paper *,.stationery,.stationery *,.invoice-paper,.invoice-paper *{color:initial}
+.paper,.stationery,.invoice-paper{background:#fff!important;color:#171612!important}
+@media print{html,body{background:#fff!important;color:#171612!important}.paper,.stationery,.invoice-paper{background:#fff!important;color:#171612!important}}
+
+</style></head>
 <body data-page="reports"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>BUSINESS DESK</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
  <a class="nav" href="new-document.html"><span class="ic">&#9632;</span>New Document</a>
