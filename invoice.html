@@ -204,7 +204,17 @@ body[data-page] .paper .note h3{color:#171612!important}
 body[data-page] .paper .note p,body[data-page] .paper .terms li,body[data-page] .paper .signature{color:#37352f!important}
 @media(max-width:760px){body[data-page] aside{background:#0b0b0a!important;border-bottom:1px solid #8c6d1d!important}}
 
-</style></head>
+</style><style>
+/* MELTECH FOOTER LAYOUT FIX — centered preparation details, signature/date opposite sides */
+.paper .signature{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:9px!important;text-align:center!important;width:100%!important;}
+.paper .signature .prepared-block{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;width:100%!important;text-align:center!important;}
+.paper .signature .prepared-block .prepared-label,.paper .signature .prepared-block strong,.paper .signature .prepared-block i{display:block!important;width:100%!important;text-align:center!important;}
+.paper .signature .signature-meta{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:end!important;gap:20px!important;width:100%!important;}
+.paper .signature .signature-sign,.paper .signature .signature-date{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;min-width:0!important;text-align:center!important;}
+.paper .signature .signature-sign .signature-img{display:block!important;width:98px!important;max-width:100%!important;height:auto!important;max-height:48px!important;object-fit:contain!important;margin:0 auto!important;}
+@media(max-width:650px){.paper .signature .signature-meta{gap:8px!important;}}
+</style>
+</head>
 <body data-page="invoice"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>ELECTRICALS &amp; REFRIGERATION</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
  <a class="nav" href="new-document.html"><span class="ic">&#9632;</span>New Document</a>
@@ -263,17 +273,3 @@ function notify(msg){let t=$('toast');t.textContent=msg;t.classList.add('show');
 /* Client details are loaded automatically from the searchable client register. */
 
 </script></body></html>
-
-
-
-
-<style>
-/* MELTECH FOOTER LAYOUT FIX — centered preparation details, signature/date opposite sides */
-.paper .signature{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:9px!important;text-align:center!important;width:100%!important;}
-.paper .signature .prepared-block{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;width:100%!important;text-align:center!important;}
-.paper .signature .prepared-block .prepared-label,.paper .signature .prepared-block strong,.paper .signature .prepared-block i{display:block!important;width:100%!important;text-align:center!important;}
-.paper .signature .signature-meta{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:end!important;gap:20px!important;width:100%!important;}
-.paper .signature .signature-sign,.paper .signature .signature-date{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;min-width:0!important;text-align:center!important;}
-.paper .signature .signature-sign .signature-img{display:block!important;width:98px!important;max-width:100%!important;height:auto!important;max-height:48px!important;object-fit:contain!important;margin:0 auto!important;}
-@media(max-width:650px){.paper .signature .signature-meta{gap:8px!important;}}
-</style>
