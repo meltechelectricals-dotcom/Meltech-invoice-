@@ -123,6 +123,24 @@ const $=id=>document.getElementById(id), money=n=>Number(n||0).toLocaleString('e
 async function api(path,opts={}){const r=await fetch(path,{...opts,credentials:"same-origin",headers:{"Content-Type":"application/json",...(opts.headers||{})}});let d={};try{d=await r.json()}catch{}if(!r.ok)throw Error(d.error||"Request failed");return d}
 function unlock(user){$("authScreen").style.display="none";$("appRoot").classList.remove("hidden");$("signedInAs").textContent=user.fullName+" &#183; "+user.role;window.meltechUser=user;$("adminPanel").classList.toggle("hidden",user.role!=="admin");$("adminNav").classList.toggle("hidden",user.role!=="admin");if(user.role==="admin")loadUsers()}
 function showLogin(message){$("authScreen").style.display="grid";$("appRoot").classList.add("hidden");if(message)$("authMessage").textContent=message}
+/* Keep one login across workspace pages and sign out after 2 minutes without activity. */
+const MELTECH_IDLE_TIMEOUT_MS=120000;
+let meltechIdleTimer=null;
+function meltechEndSession(reason){
+ if(meltechIdleTimer)clearTimeout(meltechIdleTimer);
+ meltechIdleTimer=null;
+ api("/api/auth/logout",{method:"POST"}).catch(()=>{}).finally(()=>showLogin(reason||"You have signed out."));
+}
+function meltechResetIdleTimer(){
+ if(!window.meltechUser || window.meltechUser.role==="local")return;
+ if(meltechIdleTimer)clearTimeout(meltechIdleTimer);
+ meltechIdleTimer=setTimeout(()=>meltechEndSession("Signed out automatically after 2 minutes of inactivity. Please sign in again."),MELTECH_IDLE_TIMEOUT_MS);
+}
+["pointerdown","keydown","mousemove","touchstart","scroll","click"].forEach(eventName=>document.addEventListener(eventName,meltechResetIdleTimer,{passive:true}));
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)meltechResetIdleTimer()});
+const meltechOriginalUnlock=unlock;
+unlock=function(user){meltechOriginalUnlock(user);meltechResetIdleTimer()};
+
 async function loadUsers(){try{const d=await api("/api/admin/users");$("userList").innerHTML=d.users.map(u=>'<div style="padding:9px;border-top:1px solid #eee">'+escapeHtml(u.fullName)+' &#183; '+escapeHtml(u.email)+' &#183; '+escapeHtml(u.role)+' &#183; '+escapeHtml(u.status)+' <button data-disable="'+u.id+'">Disable</button></div>').join("");$("userList").querySelectorAll("[data-disable]").forEach(b=>b.onclick=async()=>{await api("/api/admin/users",{method:"DELETE",body:JSON.stringify({id:b.dataset.disable})});loadUsers()})}catch(e){$("adminMessage").textContent=e.message}}
 $("resetBtn").onclick=async()=>{const q=new URLSearchParams(location.search);try{await api("/api/auth/reset-password",{method:"POST",body:JSON.stringify({token:q.get("reset"),email:q.get("email"),password:$("newPassword").value})});history.replaceState({},document.title,location.pathname);$("resetBox").style.display="none";$("authMessage").textContent="Password reset. You can sign in now."}catch(e){$("authMessage").textContent=e.message}};if(new URLSearchParams(location.search).has("reset"))$("resetBox").style.display="block";$("loginBtn").onclick=async()=>{try{const d=await api("/api/auth/login",{method:"POST",body:JSON.stringify({email:$("loginEmail").value,password:$("loginPassword").value})});unlock(d.user)}catch(e){$("authMessage").textContent=e.message}};
 $("forgotBtn").onclick=async()=>{const email=$("loginEmail").value||prompt("Enter your account email");if(!email)return;try{await api("/api/auth/forgot-password",{method:"POST",body:JSON.stringify({email})});$("authMessage").textContent="If the account exists, a reset email has been sent."}catch(e){$("authMessage").textContent=e.message}};
