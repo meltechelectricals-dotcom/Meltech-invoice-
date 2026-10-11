@@ -1,5 +1,5 @@
 const crypto = require('node:crypto');
-const { db, schema, body, requireUser, publicUser, sendReset } = require('../_lib');
+const { db, schema, body, requireUser, publicUser, sendInvitation } = require('../_lib');
 module.exports = async (req, res) => {
   try {
     await schema(); const admin = await requireUser(req,res,['admin']); if (!admin) return;
@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
       if (!normalized.includes('@') || !String(fullName||'').trim() || !['admin','staff','user'].includes(role)) return res.status(400).json({ error: 'Enter a name, valid email, and role' });
       const id=crypto.randomUUID();
       const out=await db().query('INSERT INTO users(id,email,full_name,role,status) VALUES($1,$2,$3,$4,\'pending\') RETURNING id,email,full_name,role,status,created_at',[id,normalized,String(fullName).trim(),role]);
-      try { await sendReset(out.rows[0]); } catch(e) { await db().query('DELETE FROM users WHERE id=$1',[id]); throw e; }
+      try { await sendInvitation(out.rows[0]); } catch(e) { await db().query('DELETE FROM users WHERE id=$1',[id]); throw e; }
       return res.status(201).json({ user: publicUser(out.rows[0]) });
     }
     if (req.method === 'PATCH') {
