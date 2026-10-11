@@ -152,6 +152,12 @@ aside{position:sticky!important;top:72px!important;align-self:start!important;he
 
 
 /* Keep the prepared-by date and date line clearly readable in the live document preview */
+/* Center the Prepared By name, company and signature as one block */
+.paper .signature>div:first-child{text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important}
+.paper .signature>div:first-child strong,.paper .signature>div:first-child i,.paper .signature>div:first-child>div{display:block!important;width:100%!important;text-align:center!important}
+.paper .signature>div:first-child i{font-style:normal!important}
+.paper .signature-img{display:block!important;margin:5px auto 0!important}
+
 /* Signature block visibility and reliable hosted signature image */
 .paper .signature{color:#000!important}
 .paper .signature>div:first-child,.paper .signature>div:first-child strong,.paper .signature>div:first-child i,.paper .signature>div:first-child>div{color:#000!important;-webkit-text-fill-color:#000!important;opacity:1!important}
