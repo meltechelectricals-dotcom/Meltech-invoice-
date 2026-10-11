@@ -159,7 +159,7 @@ function applyBusinessDefaults(){const s=readBusinessSettings();$('taxMode').val
 applyBusinessDefaults();
 async function api(path,opts={}){const r=await fetch(path,{...opts,credentials:"same-origin",headers:{"Content-Type":"application/json",...(opts.headers||{})}});let d={};try{d=await r.json()}catch{}if(!r.ok)throw Error(d.error||"Request failed");return d}
 function unlock(user){$("authScreen").style.display="none";$("appRoot").classList.remove("hidden");$("signedInAs").textContent=user.fullName+" &#183; "+user.role;window.meltechUser=user;$("adminPanel").classList.toggle("hidden",user.role!=="admin");$("adminNav").classList.toggle("hidden",user.role!=="admin");if(user.role==="admin")loadUsers()}
-function showLogin(message){$("authScreen").style.display="grid";$("appRoot").classList.add("hidden");if(message)$("authMessage").textContent=message}
+function showLogin(message){window.meltechUser=null;if(meltechIdleTimer)clearTimeout(meltechIdleTimer);$("authScreen").style.display="grid";$("appRoot").classList.add("hidden");if(message)$("authMessage").textContent=message}
 /* Keep one login across workspace pages and sign out after 2 minutes without activity. */
 const MELTECH_IDLE_TIMEOUT_MS=120000;
 let meltechIdleTimer=null;
@@ -174,7 +174,7 @@ function meltechResetIdleTimer(){
  meltechIdleTimer=setTimeout(()=>meltechEndSession("Signed out automatically after 2 minutes of inactivity. Please sign in again."),MELTECH_IDLE_TIMEOUT_MS);
 }
 ["pointerdown","keydown","mousemove","touchstart","scroll","click"].forEach(eventName=>document.addEventListener(eventName,meltechResetIdleTimer,{passive:true}));
-document.addEventListener("visibilitychange",()=>{if(!document.hidden)meltechResetIdleTimer()});
+
 const meltechOriginalUnlock=unlock;
 unlock=function(user){meltechOriginalUnlock(user);meltechResetIdleTimer()};
 
