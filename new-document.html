@@ -74,6 +74,32 @@ hr,.divider{border-color:#554526!important}
 #authScreen #localBtn{background:#fff!important;color:#171612!important;border:1px solid #ddd!important}
 
 
+
+
+/* New Document chooser layout — match the supplied reference; CSS only */
+body:has(#dashboardHome) .main{padding:34px clamp(24px,4.2vw,64px) 56px}
+body:has(#dashboardHome) .heading{margin-bottom:30px;align-items:flex-start}
+body:has(#dashboardHome) .heading .eyebrow{color:#d8b65d;letter-spacing:1.25px}
+body:has(#dashboardHome) .heading h1{font-size:clamp(28px,3vw,36px);letter-spacing:-.7px;margin:8px 0}
+body:has(#dashboardHome) .heading p{color:#c4c0b7;font-size:14px}
+body:has(#dashboardHome) #dashboardHome{max-width:1180px;margin:0 auto 30px}
+body:has(#dashboardHome) #dashboardHome .workspace-banner{display:none}
+body:has(#dashboardHome) #dashboardHome .quick-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:0}
+body:has(#dashboardHome) #dashboardHome .quick-card{position:relative;display:flex;align-items:flex-start;flex-direction:column;gap:18px;min-height:290px;padding:30px 32px 28px;background:linear-gradient(145deg,#1b1b1b,#242424)!important;border:1px solid #51452d!important;border-radius:16px;box-shadow:0 12px 30px #0004;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+body:has(#dashboardHome) #dashboardHome .quick-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:#e8b93e;border-radius:16px 0 0 16px}
+body:has(#dashboardHome) #dashboardHome .quick-card:hover{transform:translateY(-3px);border-color:#dcb34b!important;box-shadow:0 18px 36px #0006}
+body:has(#dashboardHome) #dashboardHome .quick-icon{display:grid;place-items:center;width:70px;height:70px;flex:0 0 70px;margin:0 0 2px;border:1px solid #b99443;border-radius:14px;background:#19170f!important;color:#f5d477!important;font-size:27px}
+body:has(#dashboardHome) #dashboardHome .quick-card strong{font:800 23px Manrope,sans-serif;color:#fff!important;margin:0 0 8px;letter-spacing:-.4px}
+body:has(#dashboardHome) #dashboardHome .quick-card small{display:block;color:#d0ccc2!important;font-size:14px;line-height:1.65;max-width:390px}
+body:has(#dashboardHome) #dashboardHome .quick-arrow{position:absolute;right:26px;bottom:24px;color:#f0c65f!important;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.6px}
+body:has(#dashboardHome) #dashboardHome .quick-arrow:after{content:"";display:inline-block}
+@media(max-width:760px){
+ body:has(#dashboardHome) .main{padding:24px 18px 38px}
+ body:has(#dashboardHome) #dashboardHome .quick-actions{grid-template-columns:1fr;gap:15px}
+ body:has(#dashboardHome) #dashboardHome .quick-card{min-height:220px;padding:24px}
+ body:has(#dashboardHome) #dashboardHome .quick-icon{width:60px;height:60px;flex-basis:60px}
+ body:has(#dashboardHome) #dashboardHome .quick-card strong{font-size:21px}
+}
 </style></head>
 <body data-page="new-document"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>BUSINESS DESK</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav" href="index.html"><span class="ic">&#8962;</span>Home</a>
