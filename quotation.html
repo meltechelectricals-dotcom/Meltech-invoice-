@@ -150,6 +150,10 @@ aside{position:sticky!important;top:72px!important;align-self:start!important;he
 @media(max-width:650px){.paper .docbody{padding:12px!important}.paper .doctitle{font-size:24px!important}.paper .details{grid-template-columns:1fr!important}.paper .details-col+.details-col{border-left:0!important;border-top:1px solid #dda222!important}.paper .table th{font-size:7px!important;padding:6px 3px!important}.paper .table td{font-size:8px!important;padding:6px 3px!important}.paper .notes{grid-template-columns:1fr!important;gap:14px!important}.paper .signature{gap:8px!important;font-size:8px!important}}
 @media print{@page{size:A4;margin:0}body{background:#fff!important}.paper{width:210mm!important;max-width:none!important;min-height:297mm!important;margin:0!important;border:0!important;box-shadow:none!important;overflow:visible!important}.paper .docbody{padding:8mm 9mm!important}.paper .docfoot{margin-top:8mm!important}.paper .preview-toolbar{display:none!important}}
 
+
+/* Keep the prepared-by date and date line clearly readable in the live document preview */
+.paper .signature #signDate,.paper .signature>div:nth-child(2),.paper .signature>div:nth-child(2) strong,.paper .signature>div:nth-child(2)>div{color:#000!important;opacity:1!important;-webkit-text-fill-color:#000!important}
+
 /* MELTECH shared workspace theme — aligned with Settings */
 html,body{background:#050505!important;color:#f4ead1!important}
 body[data-page] .topbar{background:#050505!important;border-bottom:2px solid #D4AF37!important}
