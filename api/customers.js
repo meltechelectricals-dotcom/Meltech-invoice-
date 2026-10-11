@@ -121,6 +121,27 @@ module.exports = async (req, res) => {
         });
       }
 
+      if (data.permanent === true) {
+        const admin = await requireUser(req, res, ["admin"]);
+        if (!admin) return;
+
+        const result = await db().query(
+          "DELETE FROM customers WHERE id=$1 RETURNING id, company_name",
+          [id]
+        );
+
+        if (!result.rows.length) {
+          return res.status(404).json({
+            error: "Customer not found"
+          });
+        }
+
+        return res.status(200).json({
+          deleted: true,
+          customer: result.rows[0]
+        });
+      }
+
       const result = await db().query(
         `UPDATE customers
          SET status='inactive',
