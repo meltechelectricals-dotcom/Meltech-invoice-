@@ -111,6 +111,31 @@ aside{position:sticky!important;top:72px!important;align-self:start!important;he
 .topbar .brand strong,.topbar .brand small,.topbar .brand>div{color:#D4AF37!important}
 .topbar .brand small{font-size:9px;letter-spacing:1.1px;line-height:1.35}
 .topbar .brand img{object-fit:contain}
+
+/* MELTECH shared workspace theme — aligned with Settings */
+html,body{background:#050505!important;color:#f4ead1!important}
+body[data-page] .topbar{background:#050505!important;border-bottom:2px solid #D4AF37!important}
+body[data-page] aside{background:#0b0b0a!important;border-right:1px solid #8c6d1d!important}
+body[data-page] .nav{color:#e7d8aa!important}
+body[data-page] .nav:hover,body[data-page] .nav.active{background:#211b0b!important;color:#D4AF37!important;border-color:#8c6d1d!important}
+body[data-page] .main,body[data-page] main,body[data-page] .layout{background:#050505!important;color:#f4ead1!important}
+body[data-page] .panel,body[data-page] .formpanel,body[data-page] .clients-intro,body[data-page] .clients-toolbar,body[data-page] .client-table-wrap,body[data-page] .history,body[data-page] .account-stat,body[data-page] .acct-tools,body[data-page] .quick-card,body[data-page] .dash-stat,body[data-page] .workspace-banner,body[data-page] .sidecard,body[data-page] .dashboard-doc,body[data-page] .account-doc{background:#10100e!important;color:#f4ead1!important;border-color:#6b531c!important;box-shadow:0 8px 28px #0009!important}
+body[data-page] .heading h1,body[data-page] .heading h2,body[data-page] .heading .eyebrow,body[data-page] .eyebrow,body[data-page] .crumb,body[data-page] .crumb a,body[data-page] .paneltitle h2,body[data-page] .section-label,body[data-page] .account-heading h2,body[data-page] .acct-group h3,body[data-page] .history h2,body[data-page] .dash-section-head,body[data-page] .workspace-banner h2,body[data-page] .dashboard-home h2,body[data-page] .clients-intro h2,body[data-page] .navlabel,body[data-page] .stat-label,body[data-page] .field label,body[data-page] .acct-tools label,body[data-page] .report-note{color:#D4AF37!important}
+body[data-page] .heading p,body[data-page] .account-heading p,body[data-page] .sub,body[data-page] .client-message,body[data-page] .step,body[data-page] .dash-stat small,body[data-page] .hist-sub{color:#D4AF37!important}
+body[data-page] .field input,body[data-page] .field textarea,body[data-page] .field select,body[data-page] .client-search input,body[data-page] .clients-toolbar input,body[data-page] .acct-tools select{background:#080807!important;color:#f5e7c0!important;border:1px solid #6b531c!important}
+body[data-page] .field input::placeholder,body[data-page] .field textarea::placeholder,body[data-page] .client-search input::placeholder{color:#a99c7a!important}
+body[data-page] .field input:focus,body[data-page] .field textarea:focus,body[data-page] .field select:focus{outline:2px solid #D4AF37!important;border-color:#D4AF37!important}
+body[data-page] .btn{background:#15140f!important;color:#D4AF37!important;border:1px solid #8c6d1d!important}
+body[data-page] .btn.gold,body[data-page] .btn.primary{background:#D4AF37!important;color:#090909!important;border-color:#D4AF37!important}
+body[data-page] .btn:hover{filter:brightness(1.12)}
+body[data-page] .empty,body[data-page] .acct-none{background:#080807!important;color:#D4AF37!important;border:1px dashed #8c6d1d!important}
+body[data-page] .workspace-pill{background:#211b0b!important;color:#D4AF37!important;border:1px solid #8c6d1d!important}
+body[data-page] .paper{background:#fff!important;color:#171612!important;border-color:#eee9dd!important}
+body[data-page] .paper .docbody{color:#171612!important}
+body[data-page] .paper .note h3{color:#171612!important}
+body[data-page] .paper .note p,body[data-page] .paper .terms li,body[data-page] .paper .signature{color:#37352f!important}
+@media(max-width:760px){body[data-page] aside{background:#0b0b0a!important;border-bottom:1px solid #8c6d1d!important}}
+
 </style></head>
 <body data-page="reports"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>ELECTRICALS &amp; REFRIGERATION</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
