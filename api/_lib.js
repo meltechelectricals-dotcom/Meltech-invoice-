@@ -79,4 +79,18 @@ async function sendReset(user) {
   if (!response.ok) throw new Error('Email provider rejected the reset message');
 }
 
-module.exports = { db, schema, body, passwordHash, safeEqual, setSession, clearSession, sessionUser, requireUser, passwordValid, publicUser, sendReset };
+
+async function sendInvitation(user) {
+  if (!process.env.RESEND_API_KEY || !process.env.MAIL_FROM || !process.env.APP_URL) throw new Error('Email invitations are not configured');
+  const raw = crypto.randomBytes(32).toString('base64url');
+  const tokenHash = crypto.createHash('sha256').update(raw).digest('hex');
+  await db().query('INSERT INTO password_resets(token_hash,user_id,expires_at) VALUES($1,$2,now()+interval \'30 minutes\')', [tokenHash, user.id]);
+  const link = process.env.APP_URL.replace(/\/$/, '') + '/?reset=' + encodeURIComponent(raw) + '&email=' + encodeURIComponent(user.email);
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST', headers: { Authorization: 'Bearer ' + process.env.RESEND_API_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from: process.env.MAIL_FROM, to: [user.email], subject: 'Set up your MELTECH Business Desk account', text: 'Hello ' + user.full_name + ',\n\nYou have been invited to the MELTECH Business Desk. Use the secure one-time link below within 30 minutes to set your password and activate your account:\n\n' + link + '\n\nIf you were not expecting this invitation, you can ignore this email.' })
+  });
+  if (!response.ok) throw new Error('Email provider rejected the invitation message');
+}
+
+module.exports = { db, schema, body, passwordHash, safeEqual, setSession, clearSession, sessionUser, requireUser, passwordValid, publicUser, sendReset, sendInvitation };
