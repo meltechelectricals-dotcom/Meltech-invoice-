@@ -74,6 +74,62 @@ hr,.divider{border-color:#554526!important}
 #authScreen #localBtn{background:#fff!important;color:#171612!important;border:1px solid #ddd!important}
 
 
+
+
+/* Dashboard layout refinement — CSS only; preserve all existing HTML and functionality */
+.dashboard-home{width:100%;max-width:1320px;margin:0 auto 32px}
+.dashboard-home .workspace-banner{padding:32px 36px;min-height:174px;gap:28px;margin-bottom:24px;border:1px solid #5d4922;box-shadow:0 16px 38px #0005}
+.dashboard-home .workspace-banner .eyebrow{margin:0 0 10px}
+.dashboard-home .workspace-banner h2{line-height:1.18;max-width:760px}
+.dashboard-home .workspace-banner p{max-width:700px}
+.dashboard-home .dashboard-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:30px}
+.dashboard-home .dash-stat{min-width:0;min-height:142px;padding:22px 24px;border-radius:15px}
+.dashboard-home .stat-label{padding-right:8px}
+.dashboard-home .dash-stat strong{line-height:1.1}
+.dashboard-home .quick-actions{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:30px}
+.dashboard-home .quick-card{min-width:0;min-height:82px;padding:17px 18px;gap:14px}
+.dashboard-home .quick-card>div:last-of-type{min-width:0}
+.dashboard-home .quick-card strong{line-height:1.35}
+.dashboard-home .quick-card small{line-height:1.45}
+.dashboard-home .quick-arrow{flex:0 0 auto}
+.dashboard-home .recent-card{padding:23px 25px;min-height:200px}
+.dashboard-home .recent-head{padding-bottom:15px}
+.dashboard-home .dashboard-recent{padding-top:14px}
+.main{min-width:0}
+.layout{grid-template-columns:240px minmax(0,1fr)}
+.layout aside{min-width:0}
+.heading{align-items:center;flex-wrap:wrap}
+.heading>div:first-child{min-width:0}
+@media(max-width:1050px){
+  .layout{grid-template-columns:210px minmax(0,1fr)}
+  .main{padding:28px 24px 48px}
+  .dashboard-home .workspace-banner{padding:26px 28px}
+  .dashboard-home .quick-actions{gap:11px}
+  .dashboard-home .quick-card{padding:15px 12px;gap:10px}
+  .dashboard-home .quick-icon{width:38px;height:38px}
+}
+@media(max-width:760px){
+  .layout{grid-template-columns:1fr}
+  .layout aside{min-height:0;padding:16px;border-right:0;border-bottom:1px solid #5d4922}
+  .sidebar-profile{position:static;margin-top:16px;padding-top:12px}
+  .main{padding:22px 16px 36px}
+  .dashboard-home .workspace-banner{padding:22px;min-height:0}
+  .dashboard-home .dashboard-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .dashboard-home .dash-stat{padding:14px 11px;min-height:112px}
+  .dashboard-home .dash-stat strong{font-size:25px}
+  .dashboard-home .stat-label{font-size:11px}
+  .dashboard-home .stat-icon{width:34px;height:34px;font-size:17px}
+  .dashboard-home .quick-actions{grid-template-columns:1fr;gap:10px}
+  .dashboard-home .quick-card{min-height:72px;padding:14px}
+}
+@media(max-width:480px){
+  .dashboard-home .dashboard-stats{grid-template-columns:1fr}
+  .dashboard-home .dash-stat{grid-template-columns:1fr auto;min-height:92px;padding:16px}
+  .dashboard-home .workspace-banner{padding:19px}
+  .dashboard-home .workspace-banner h2{font-size:24px}
+  .dashboard-home .recent-card{padding:17px 14px}
+  .heading{gap:12px;margin-bottom:22px}
+}
 </style></head>
 <body data-page="home"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>BUSINESS DESK</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
