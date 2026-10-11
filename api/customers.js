@@ -121,6 +121,19 @@ module.exports = async (req, res) => {
         });
       }
 
+      if (data.clearInactive === true) {
+        const admin = await requireUser(req, res, ["admin"]);
+        if (!admin) return;
+
+        const result = await db().query(
+          "DELETE FROM customers WHERE status='inactive' RETURNING id"
+        );
+
+        return res.status(200).json({
+          deletedCount: result.rowCount || result.rows.length
+        });
+      }
+
       if (data.permanent === true) {
         const admin = await requireUser(req, res, ["admin"]);
         if (!admin) return;
