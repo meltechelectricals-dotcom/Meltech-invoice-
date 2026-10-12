@@ -236,6 +236,105 @@ body[data-page] .paper .note p,body[data-page] .paper .terms li,body[data-page] 
 @media(max-width:480px){.paper .totals{width:100%!important;margin-top:14px!important}.paper .totals .totalrow{column-gap:7px!important;padding:7px 8px!important}}
 @media print{.paper .totals{box-shadow:none!important;break-inside:avoid!important;page-break-inside:avoid!important}}
 </style>
+
+<style id="meltech-footer-placement-fix">
+/* MELTECH FOOTER PLACEMENT FIX — DATE LEFT, PREPARED BY CENTER, SIGNATURE RIGHT */
+.paper .signature{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr)!important;
+  grid-template-areas:"date prepared sign"!important;
+  align-items:end!important;
+  column-gap:14px!important;
+  row-gap:0!important;
+  width:100%!important;
+  text-align:initial!important;
+}
+.paper .signature .prepared-block{
+  grid-area:prepared!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  width:100%!important;
+  min-width:0!important;
+  text-align:center!important;
+}
+.paper .signature .prepared-block .prepared-label,
+.paper .signature .prepared-block strong,
+.paper .signature .prepared-block i{
+  width:100%!important;
+  text-align:center!important;
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+}
+.paper .signature .prepared-block i{
+  font-style:normal!important;
+  line-height:1.45!important;
+}
+.paper .signature .signature-meta{display:contents!important}
+.paper .signature .signature-date{
+  grid-area:date!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-end!important;
+  min-width:0!important;
+  text-align:left!important;
+  color:#000!important;
+}
+.paper .signature .signature-date #signDate{
+  display:block!important;
+  width:100%!important;
+  text-align:left!important;
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+  font-weight:600!important;
+}
+.paper .signature .signature-date .date-line{
+  width:100%!important;
+  margin-top:2px!important;
+  text-align:left!important;
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+  border-bottom:1px dotted #b68a2c!important;
+  line-height:1.45!important;
+}
+.paper .signature .signature-sign{
+  grid-area:sign!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-end!important;
+  justify-content:flex-end!important;
+  min-width:0!important;
+  text-align:right!important;
+  color:#000!important;
+}
+.paper .signature .signature-sign .signature-img{
+  display:block!important;
+  width:98px!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:48px!important;
+  object-fit:contain!important;
+  margin:0 0 0 auto!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+.paper .signature .signature-sign>div{
+  width:100%!important;
+  text-align:right!important;
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+}
+@media(max-width:650px){
+  .paper .signature{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr)!important;column-gap:6px!important}
+  .paper .signature .prepared-block strong{font-size:9px!important}
+  .paper .signature .prepared-block i{font-size:7px!important;overflow-wrap:anywhere!important}
+  .paper .signature .signature-sign .signature-img{width:76px!important;max-width:100%!important}
+  .paper .signature .signature-date .date-line{font-size:8px!important}
+}
+</style>
+
 </head>
 <body data-page="invoice"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>ELECTRICALS &amp; REFRIGERATION</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
