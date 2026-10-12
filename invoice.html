@@ -402,6 +402,39 @@ body[data-page] .paper .note p,body[data-page] .paper .terms li,body[data-page] 
   .paper .signature .signature-date .date-line::before{max-width:100%!important}
 }
 </style>
+
+<style id="meltech-gold-date-underline-final">
+/* Visible gold dotted underline with Date label beneath */
+.paper .signature .signature-date{
+  grid-area:date!important;align-self:end!important;justify-self:stretch!important;
+  display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  justify-content:flex-end!important;text-align:left!important;margin:0!important;padding:0!important;
+}
+.paper .signature .signature-date #signDate{
+  display:block!important;width:100%!important;text-align:left!important;
+  color:#000!important;-webkit-text-fill-color:#000!important;font-weight:700!important;
+}
+.paper .signature .signature-date .date-line{
+  display:block!important;position:relative!important;width:100%!important;
+  max-width:150px!important;height:auto!important;min-height:15px!important;
+  margin-top:2px!important;padding:0 0 2px!important;
+  border-bottom:1px dotted #b58a2b!important;
+  color:transparent!important;-webkit-text-fill-color:transparent!important;
+  font-size:0!important;line-height:1!important;text-align:left!important;
+  letter-spacing:0!important;
+}
+.paper .signature .signature-date .date-line br{display:none!important}
+.paper .signature .signature-date .date-line::before{content:none!important;display:none!important}
+.paper .signature .signature-date .date-line::after{
+  content:"Date"!important;display:block!important;position:absolute!important;
+  left:0!important;top:100%!important;margin-top:2px!important;
+  color:#000!important;-webkit-text-fill-color:#000!important;
+  font-size:9px!important;line-height:1.4!important;letter-spacing:.3px!important;
+}
+@media(max-width:650px){
+  .paper .signature .signature-date .date-line{max-width:100%!important}
+}
+</style>
 </head>
 <body data-page="invoice"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>ELECTRICALS &amp; REFRIGERATION</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
