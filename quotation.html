@@ -414,6 +414,22 @@ body[data-page] .paper .note p,body[data-page] .paper .terms li,body[data-page] 
 .paper .signature .signature-sign{grid-column:1!important;width:100%!important}
 @media print{.paper .signature .signature-meta{grid-template-columns:1fr!important}}
 </style>
+<style id="meltech-restore-items-section">
+/* Explicitly restore the line-item table in the document preview */
+.paper table.table{display:table!important;visibility:visible!important;opacity:1!important;width:100%!important;table-layout:auto!important;border-collapse:collapse!important;height:auto!important;overflow:visible!important}
+.paper table.table thead{display:table-header-group!important;visibility:visible!important}
+.paper table.table tbody{display:table-row-group!important;visibility:visible!important}
+.paper table.table tr{display:table-row!important;visibility:visible!important}
+.paper table.table th,.paper table.table td{display:table-cell!important;visibility:visible!important}
+.paper #previewItems:empty::after{content:"Add a line item";display:table-cell!important}
+@media print{
+ .paper table.table{display:table!important;visibility:visible!important;opacity:1!important}
+ .paper table.table thead{display:table-header-group!important}
+ .paper table.table tbody{display:table-row-group!important}
+ .paper table.table tr{display:table-row!important}
+ .paper table.table th,.paper table.table td{display:table-cell!important}
+}
+</style>
 </head>
 <body data-page="quotation"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>ELECTRICALS &amp; REFRIGERATION</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
