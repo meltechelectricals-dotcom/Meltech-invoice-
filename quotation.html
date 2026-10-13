@@ -435,7 +435,82 @@ body[data-page] .paper .note p,body[data-page] .paper .terms li,body[data-page] 
   .paper .signature .signature-date .date-line{max-width:100%!important}
 }
 </style>
-<style id="meltech-clear-detail-icons">.paper .detail{grid-template-columns:92px minmax(0,1fr)!important;align-items:center!important;gap:6px!important}.paper .detail b{display:flex!important;align-items:center!important;gap:5px!important;white-space:nowrap!important;font-size:9px!important}.paper .detail-icon{display:inline-block!important;width:12px!important;height:12px!important;min-width:12px!important;stroke:#b58a2b!important;stroke-width:1.8!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important;vertical-align:middle!important;flex:none!important}.paper .detail>span{overflow-wrap:anywhere!important}@media(max-width:650px){.paper .detail{grid-template-columns:92px minmax(0,1fr)!important}}</style></head>
+<style id="meltech-clear-detail-icons">.paper .detail{grid-template-columns:92px minmax(0,1fr)!important;align-items:center!important;gap:6px!important}.paper .detail b{display:flex!important;align-items:center!important;gap:5px!important;white-space:nowrap!important;font-size:9px!important}.paper .detail-icon{display:inline-block!important;width:12px!important;height:12px!important;min-width:12px!important;stroke:#b58a2b!important;stroke-width:1.8!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important;vertical-align:middle!important;flex:none!important}.paper .detail>span{overflow-wrap:anywhere!important}@media(max-width:650px){.paper .detail{grid-template-columns:92px minmax(0,1fr)!important}}</style>
+<style id="meltech-reference-invoice-layout">
+/* Official MELTECH black-and-gold invoice reference layout */
+.paper{width:min(calc(100% - 36px),760px)!important;min-height:0!important;background:#fff!important;border:1px solid #d9a21b!important;overflow:hidden!important;color:#080808!important}
+.paper .dochead{height:auto!important;padding:0!important;background:#050505!important;border-bottom:4px solid #d99a0c!important;line-height:0!important}
+.paper .dochead img{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important}
+.paper .docbody{padding:14px 24px 12px!important;background:#fff!important}
+.paper .doctitle{font-family:Manrope,'DM Sans',sans-serif!important;font-size:clamp(28px,4.4vw,44px)!important;letter-spacing:1.2px!important;line-height:1.15!important;margin:0 0 12px!important;color:#080808!important}
+.paper .details{grid-template-columns:1fr 1fr!important;border:1px solid #d99a0c!important;border-radius:7px!important;margin-bottom:12px!important}
+.paper .details-col{padding:10px 12px!important}
+.paper .details-col+.details-col{border-left:1px solid #d99a0c!important}
+.paper .detail{grid-template-columns:minmax(75px,auto) minmax(0,1fr)!important;gap:7px!important;margin:7px 0!important;font-size:clamp(9px,1.15vw,12px)!important;line-height:1.4!important;color:#111!important;overflow-wrap:anywhere!important}
+.paper .detail b{font-weight:800!important;color:#080808!important}
+.paper .detail-icon{width:17px!important;height:17px!important;flex:0 0 17px!important;vertical-align:middle!important;margin-right:4px!important;fill:none!important;stroke:#d99a0c!important}
+.paper .table{width:100%!important;border-collapse:collapse!important;font-size:clamp(9px,1.15vw,12px)!important}
+.paper .table th{background:#050505!important;color:#f0aa16!important;padding:9px 6px!important;text-align:center!important;font-size:clamp(8px,1vw,11px)!important;border:1px solid #d99a0c!important;white-space:normal!important}
+.paper .table td{padding:9px 7px!important;border:1px solid #d99a0c!important;vertical-align:middle!important;color:#111!important;overflow-wrap:anywhere!important}
+.paper .table td:nth-child(2){text-align:left!important}
+.paper .table td:nth-child(1),.paper .table td:nth-child(3),.paper .table td:nth-child(4){text-align:center!important}
+.paper .table td:last-child{text-align:right!important}
+.paper .totals{width:54%!important;margin-left:auto!important;font-size:clamp(9px,1.1vw,12px)!important}
+.paper .totalrow{grid-template-columns:minmax(0,1fr) 38px minmax(72px,auto)!important;padding:8px 10px!important;border-color:#d99a0c!important;gap:8px!important}
+.paper .totalrow:last-child{background:#e5a000!important;color:#080808!important}
+.paper .notes{grid-template-columns:0.85fr 1.15fr!important;gap:18px!important;margin-top:22px!important}
+.paper .note h3{font-size:clamp(9px,1.1vw,12px)!important;color:#080808!important;border-bottom:1px solid #d99a0c!important;padding-bottom:7px!important}
+.paper .note p,.paper .terms li{font-size:clamp(8px,1vw,11px)!important;line-height:1.55!important;color:#111!important}
+.paper .notes .note:first-child{border-right:1px solid #d99a0c!important;padding-right:14px!important}
+.paper .signature{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:7px!important;text-align:center!important;color:#000!important;padding:9px 0 0!important;margin:17px 0 0!important;border-top:1px solid #d99a0c!important}
+.paper .signature .prepared-block{grid-area:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;width:100%!important;min-width:0!important;text-align:center!important;color:#000!important}
+.paper .signature .prepared-label{font-size:clamp(9px,1vw,11px)!important;font-weight:700!important;color:#000!important}
+.paper .signature .prepared-block strong{display:block!important;width:100%!important;font-size:clamp(10px,1.25vw,13px)!important;font-weight:800!important;letter-spacing:.5px!important;text-align:center!important;color:#000!important;-webkit-text-fill-color:#000!important}
+.paper .signature .prepared-block i{display:block!important;width:100%!important;font-size:clamp(8px,1vw,11px)!important;font-style:italic!important;line-height:1.4!important;text-align:center!important;color:#000!important;-webkit-text-fill-color:#000!important}
+.paper .signature .signature-meta{display:grid!important;grid-template-columns:1fr 1fr!important;align-items:end!important;gap:28px!important;width:100%!important;margin-top:0!important}
+.paper .signature .signature-sign,.paper .signature .signature-date{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;min-width:0!important;text-align:center!important;color:#000!important}
+.paper .signature .signature-sign .signature-img{width:100px!important;max-width:100px!important;height:auto!important;margin:2px auto 0!important}
+.paper .signature .signature-date #signDate{display:block!important;width:100%!important;font-size:10px!important;color:#000!important;-webkit-text-fill-color:#000!important;text-align:center!important}
+.paper .signature .date-line{font-size:9px!important;line-height:1.5!important;color:#000!important;white-space:normal!important}
+.paper .docfoot{display:block!important;width:100%!important;padding:0!important;margin:0!important;line-height:0!important;background:#050505!important}
+.paper .docfoot img{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important}
+@media(max-width:650px){
+ .paper{width:calc(100% - 16px)!important;margin:8px auto!important}
+ .paper .docbody{padding:10px 10px 9px!important}
+ .paper .details-col{padding:7px 6px!important}
+ .paper .detail{grid-template-columns:minmax(58px,auto) minmax(0,1fr)!important;gap:4px!important;font-size:8px!important}
+ .paper .detail-icon{width:13px!important;height:13px!important;flex-basis:13px!important;margin-right:2px!important}
+ .paper .table th{padding:6px 3px!important;font-size:7px!important}
+ .paper .table td{padding:6px 3px!important;font-size:8px!important}
+ .paper .totals{width:68%!important}
+ .paper .notes{gap:9px!important;margin-top:16px!important}
+ .paper .notes .note:first-child{padding-right:8px!important}
+ .paper .note p,.paper .terms li{font-size:7.5px!important}
+ .paper .signature .signature-meta{gap:12px!important}
+}
+@media print{
+ @page{size:A4 portrait;margin:0}
+ html,body{width:210mm!important;min-height:297mm!important;margin:0!important;padding:0!important;background:#fff!important}
+ .topbar,aside,.heading,.formpanel,.preview-toolbar,.history,.accounting{display:none!important}
+ .layout,.main,.content,.previewpanel{display:block!important;width:210mm!important;max-width:none!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important}
+ .paper{display:flex!important;flex-direction:column!important;width:210mm!important;height:297mm!important;min-height:297mm!important;max-height:297mm!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;overflow:hidden!important;break-inside:avoid!important;page-break-inside:avoid!important}
+ .paper .dochead img{width:100%!important;height:auto!important}
+ .paper .docbody{flex:1 1 auto!important;padding:5mm 9mm 2mm!important}
+ .paper .doctitle{font-size:34pt!important;margin-bottom:3mm!important}
+ .paper .detail{font-size:9pt!important}
+ .paper .table{font-size:9pt!important}
+ .paper .table th{font-size:8pt!important;padding:2.5mm 1.5mm!important}
+ .paper .table td{padding:2.5mm 1.8mm!important}
+ .paper .totals{font-size:9pt!important}
+ .paper .notes{margin-top:5mm!important}
+ .paper .note p,.paper .terms li{font-size:8pt!important}
+ .paper .signature{margin-top:4mm!important;padding-top:2mm!important;gap:1mm!important}
+ .paper .docfoot{position:relative!important;bottom:auto!important;left:auto!important;flex:0 0 auto!important;width:100%!important;margin-top:auto!important}
+ .paper .dochead,.paper .table th,.paper .totalrow:last-child,.paper .docfoot{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+</style>
+
+</head>
 <body data-page="quotation"><section id="authScreen" style="display:grid;position:fixed;z-index:20;inset:0;background:#f4f3f0;place-items:center;padding:20px"><div style="width:min(420px,100%);background:white;padding:28px;border-radius:14px"><h1>MELTECH account sign in</h1><p id="authMessage">Connect to the Vercel account API to sign in.</p><label>Email<input id="loginEmail" type="email"></label><br><label>Password<input id="loginPassword" type="password"></label><br><button id="loginBtn">Sign in</button><button id="forgotBtn">Forgot password</button><div id="resetBox" style="display:none"><label>New password (12+ characters)<input id="newPassword" type="password"></label><button id="resetBtn">Set new password</button></div><button id="localBtn" style="display:none">Local preview</button></div></section><div class="app hidden" id="appRoot"><header class="topbar"><div class="brand"><img class="brand-logo" src="meltech-official.webp" alt="MELTECH logo"><div><strong>MELTECH</strong><small>ELECTRICALS &amp; REFRIGERATION</small></div></div><div class="topright"><span id="signedInAs" style="display:none"></span><button id="logoutBtn">Sign out</button></div></header><div class="layout"><aside><div class="navlabel">Workspace</div>
  <a class="nav active" href="index.html"><span class="ic">&#8962;</span>Home</a>
  <a class="nav" href="new-document.html"><span class="ic">&#9632;</span>New Document</a>
